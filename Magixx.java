@@ -2,7 +2,7 @@ package Lore;
 
 /**
  * Warhammer Fantasy, Magic Generator
- * @author jonjon
+ * @author unstable
  */
 public class Magixx {
     
