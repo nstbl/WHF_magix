@@ -1,24 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package kriegshammare;
 
 /**
  *
- * @author jonjon
+ * @author unstable
  */
 public class ProperWizAssist {
 
-    private static int TOCAST = 24;    
+    private static final int TOCAST = 32;
     String result;
 
-    public ProperWizAssist(int depth, int wizardLevel, int target) {
-        result = getPresentation(depth, wizardLevel, target);
+    public ProperWizAssist(int depth, int target) {
+        result = getPresentation(depth, target);
     }
     
-    private String getPresentation(int depth, int wizardLevel, int target) {
-        int successes = getProbability(depth, target - wizardLevel, 0, 0, 0);
+    private String getPresentation(int depth, int target) {
+        int successes = getProbability(depth, target, 0, 0, 0);
         double nPow = Math.pow(6, depth);
         return String.format("%.4f", successes / nPow);        
     }
@@ -42,14 +38,15 @@ public class ProperWizAssist {
     }
 
     public static void main(String[] args) {
-        StringBuilder sB = new StringBuilder();        
+        StringBuilder sB = new StringBuilder();
+        
         for (int i = 3; i < TOCAST + 1; i++) {
             sB.append(i);
             for (int j = 1; j < 7; j++) {
-                ProperWizAssist c = new ProperWizAssist(j, 0, i);
+                ProperWizAssist c = new ProperWizAssist(j, i);
                 sB.append("\t");
                 sB.append(c.result);
-            }          
+            }
             sB.append("\n");
         }
         System.out.println(sB.toString());
