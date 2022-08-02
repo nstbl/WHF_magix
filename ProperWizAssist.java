@@ -10,9 +10,7 @@ package kriegshammare;
  */
 public class ProperWizAssist {
 
-    private static int WIZARDLEVEL = 0;
-    private static int NUMDIE = 13;
-    private static int TOCAST = 24;
+    private static int TOCAST = 24;    
     String result;
 
     public ProperWizAssist(int depth, int wizardLevel, int target) {
@@ -44,16 +42,14 @@ public class ProperWizAssist {
     }
 
     public static void main(String[] args) {
-        StringBuilder sB = new StringBuilder();
-        
+        StringBuilder sB = new StringBuilder();        
         for (int i = 3; i < TOCAST + 1; i++) {
             sB.append(i);
             for (int j = 1; j < 7; j++) {
-                ProperWizAssist c = new ProperWizAssist(j, WIZARDLEVEL, i);
+                ProperWizAssist c = new ProperWizAssist(j, 0, i);
                 sB.append("\t");
                 sB.append(c.result);
-            }
-            
+            }          
             sB.append("\n");
         }
         System.out.println(sB.toString());
