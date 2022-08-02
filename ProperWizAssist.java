@@ -21,16 +21,11 @@ public class ProperWizAssist {
 
     private int getProbability(int depth, int target, int sum, int success, int sixes) {
         if (depth == 0) {
-            if (sixes >= 2) {
-                success++;
-            } else if (sum >= target && sum > 2) {
-                success++;
-            }
+            if (sixes >= 2) { success++; } 
+            else if (sum >= target && sum > 2) { success++; }
         } else {
             for (int i = 1; i <= 6; i++) {
-                if (i == 6) {
-                    sixes++;
-                }
+                if (i == 6) { sixes++; }
                 success = getProbability(depth - 1, target, sum + i, success, sixes);
             }
         }
